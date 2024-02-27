@@ -15,6 +15,18 @@ class PostController extends Controller
     {
         // $posts = Post::find()->all();
         // return $this->render('index', compact('posts'));
+        
+        /*
+        Пример создания поста из кода (демонстрация работы TimestampBehavior)
+        $post = new Post();
+        $post->category_id = 1;
+        $post->title = 'test Post';
+        $post->excerpt = '<p>test</p>';
+        $post->content = '<p>test</p>';
+        $post->img = 'img/post-image9.jpg';
+        $post->save();
+        */
+
         $query = Post::find()->with('category');
         $pages = new Pagination([
             'totalCount' => $query->count(), 
