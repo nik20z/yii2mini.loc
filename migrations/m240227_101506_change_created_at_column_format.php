@@ -14,14 +14,14 @@ class m240227_101506_change_created_at_column_format extends Migration
      */
     public function safeUp()
     {
-        // Изменяем тип данных в колонки created_at (к integer)
+        // Изменяем тип данных в колонки created_at (к bigint)
         $this->alterColumn(
             'post', 
             'created_at', 
-            'integer unsigned'
+            'bigint unsigned'
         );
         
-        // Обновляем данные в created_at (из datetime в integer)
+        // Обновляем данные в created_at (из datetime в timestamp)
         $this->update(
             'post', 
             [
@@ -42,7 +42,7 @@ class m240227_101506_change_created_at_column_format extends Migration
             'datetime'
         );
         
-        // Восстанавливаем данные в created_at (из integer в datetime)
+        // Восстанавливаем данные в created_at (из timestamp в datetime)
         $this->update(
             'post', 
             [
