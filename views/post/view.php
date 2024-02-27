@@ -16,7 +16,7 @@ $this->title = Yii::$app->name;
                         </div>
                         <div class="big-text">
                             <h3><?= $postData->title ?></h3>
-                            <?= $postData->excerpt ?>
+                            <?= $postData->content ?>
                             <h4><span><?= Yii::$app->formatter->asDate($postData->created_at, 'php:d.m.Y') ?></span></h4>
                         </div>
                     </div>
