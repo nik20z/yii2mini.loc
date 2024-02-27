@@ -3,8 +3,10 @@
 namespace app\controllers;
 
 use app\models\Post;
+
 use yii\data\Pagination;
 use yii\web\Controller;
+
 
 class PostController extends Controller
 {
@@ -22,5 +24,12 @@ class PostController extends Controller
         ]);
         $posts = $query->offset($pages->offset)->limit($pages->limit)->all();
         return $this->render('index', compact('posts', 'pages'));
+    }
+
+    public function actionView($id)
+    {
+        $postData = Post::findOne($id);
+        return $this->render('view', compact('postData'));
+
     }
 }
